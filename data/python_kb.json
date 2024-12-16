@@ -92,25 +92,38 @@
       "examples": [
         {
           "statement": "Find sum of the squares of the even numbers in a list",
+          
+          "question_template": "def sum_squares_of_even(nums:list):\n    pass",
+          "function_name": "sum_squares_of_even",
           "solution": "def sum_squares_of_even(nums:list):\n    return sum(map(lambda x: x**2, filter(lambda x: x%2==0, nums)))",
+          "input_type" : "code",
           "tags": ["numeric", "map", "aggregation", "filtering"],
           "data_formats": ["int", "list"]
         },
         {
           "statement": "Find the index of the row with the maximum number of zeros in it.",
+          "question_template": "def row_with_max_zeros(matrix:list[list[int]])->int:\n    pass",
+          "function_name": "row_with_max_zeros",
           "solution": "def row_with_max_zeros(matrix:list[list[int]])->int:\n    return max(range(len(matrix)), key= lambda x: matrix[x].count(0))",
+          "input_type" : "code",
           "tags": ["matrix", "count", "max", "index"],
           "data_formats": ["int", "list[list]"]
         },
         {
           "statement": "Given an integer, create a string with its digits as words separated by hyphens.",
+          "question_template":"",
+          "function_name": "",
           "solution": "num_word = {\n    0: 'zero',1: 'one',2: 'two',3: 'three',\n    4: 'four',5: 'five',6: 'six',7: 'seven',\n    8: 'eight',9: 'nine'\n}\n\ndef num_to_hypen_string(num:int)->str:\n    return '-'.join(map(num_word.get, map(int, str(num))))",
+          "input_type" : "stdin",
           "tags": ["mapping", "split", "concatenation", "type-conversion"],
           "data_formats": ["int", "str", "dict"]
         },
         {
           "statement": "Find the word with the maximum number of times 'a' is repeated.",
+          "question_template": "def max_repeat_a(sentence:str)->str:\n    pass",
+          "function_name": "max_repeat_a",
           "solution": "def max_repeat_a(sentence:str)->str:\n    return max(sentence.split(), key=lambda x:x.count('a'))",
+          "input_type" : "code",
           "tags": ["count", "max", "split"],
           "data_formats": ["str"]
         }

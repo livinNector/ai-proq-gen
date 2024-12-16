@@ -4,6 +4,6 @@ langchain_community
 langchain_groq
 langchain_huggingface
 langchain_chroma
-pytorch
+torch
 
 

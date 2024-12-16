@@ -4,29 +4,41 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
 
 
+model = ChatGroq(temperature=0.7, model="llama3-70b-8192")
 
-model = ChatGroq(temperature=.7,model="llama3-70b-8192")
-
-prompt = ChatPromptTemplate.from_messages([
-    ('system', """
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """
 Given a text content in any format, 
 change the content to a similar content in the given target domain.
 Respond only with the modified content. Use the same format as the input for the output
-"""),
-    ('human','''
+""",
+        ),
+        (
+            "human",
+            """
 content: 
 Find the maximum
-target: cinema'''),
-    ('ai',"""
+target: cinema""",
+        ),
+        (
+            "ai",
+            """
 Determine the highest-grossing movie from a collection of films.
-"""),
-('human','''
+""",
+        ),
+        (
+            "human",
+            '''
 content: 
 """What is this?"""
-target: transport'''),
-    ('ai','''"""What car is this?"""'''),
-    ('human',"content:{content}\ntarget: {domain}")
-])
+target: transport''',
+        ),
+        ("ai", '''"""What car is this?"""'''),
+        ("human", "content:{content}\ntarget: {domain}"),
+    ]
+)
 
-domain_change =  prompt | model | StrOutputParser()
-
+domain_change = prompt | model | StrOutputParser()
